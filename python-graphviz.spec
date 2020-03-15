@@ -9,7 +9,7 @@ Summary:	Simple Python interface for Graphviz
 Summary(pl.UTF-8):	Prosty pythonowy interfejs do Graphviza
 Name:		python-graphviz
 Version:	0.10.1
-Release:	1
+Release:	2
 License:	MIT
 Group:		Libraries/Python
 #Source0Download: https://pypi.org/simple/graphviz/
