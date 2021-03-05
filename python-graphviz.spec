@@ -8,13 +8,13 @@
 Summary:	Simple Python interface for Graphviz
 Summary(pl.UTF-8):	Prosty pythonowy interfejs do Graphviza
 Name:		python-graphviz
-Version:	0.10.1
-Release:	3
+Version:	0.16
+Release:	1
 License:	MIT
 Group:		Libraries/Python
 #Source0Download: https://pypi.org/simple/graphviz/
 Source0:	https://files.pythonhosted.org/packages/source/g/graphviz/graphviz-%{version}.zip
-# Source0-md5:	38052fc62e2233efe9921334b0c97cf9
+# Source0-md5:	76a73ed4821bcd993519490ec46d2061
 URL:		https://github.com/xflr6/graphviz
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.714
