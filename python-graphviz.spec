@@ -8,13 +8,16 @@
 Summary:	Simple Python interface for Graphviz
 Summary(pl.UTF-8):	Prosty pythonowy interfejs do Graphviza
 Name:		python-graphviz
+# keep 0.16.x here for python2 support
 Version:	0.16
-Release:	1
+Release:	2
+Epoch:		1
 License:	MIT
 Group:		Libraries/Python
 #Source0Download: https://pypi.org/simple/graphviz/
 Source0:	https://files.pythonhosted.org/packages/source/g/graphviz/graphviz-%{version}.zip
 # Source0-md5:	76a73ed4821bcd993519490ec46d2061
+Patch0:		%{name}-mock.patch
 URL:		https://github.com/xflr6/graphviz
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.714
@@ -24,7 +27,7 @@ BuildRequires:	python-modules >= 1:2.7
 BuildRequires:	python-setuptools
 %if %{with tests}
 BuildRequires:	python-mock >= 2
-BuildRequires:	python-pytest >= 3.4
+BuildRequires:	python-pytest >= 4
 BuildRequires:	python-pytest-cov
 BuildRequires:	python-pytest-mock >= 1.8
 %endif
@@ -33,7 +36,7 @@ BuildRequires:	python-pytest-mock >= 1.8
 BuildRequires:	python3-modules >= 1:3.4
 BuildRequires:	python3-setuptools
 %if %{with tests}
-BuildRequires:	python3-pytest >= 3.4
+BuildRequires:	python3-pytest >= 4
 BuildRequires:	python3-pytest-cov
 BuildRequires:	python3-pytest-mock >= 1.8
 %endif
@@ -88,13 +91,16 @@ Dokumentacja API modułu Pythona graphviz.
 
 %prep
 %setup -q -n graphviz-%{version}
+%patch0 -p1
 
 %build
 %if %{with python2}
 %py_build
 
 %if %{with tests}
-%{__python} run-tests.py
+PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 \
+PYTEST_PLUGINS="pytest_cov.plugin,pytest_mock" \
+%{__python} -m pytest tests
 %endif
 %endif
 
@@ -102,7 +108,9 @@ Dokumentacja API modułu Pythona graphviz.
 %py3_build
 
 %if %{with tests}
-%{__python3} run-tests.py
+PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 \
+PYTEST_PLUGINS="pytest_cov.plugin,pytest_mock" \
+%{__python3} -m pytest tests
 %endif
 %endif
 
