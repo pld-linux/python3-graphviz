@@ -10,7 +10,7 @@ Summary(pl.UTF-8):	Prosty pythonowy interfejs do Graphviza
 Name:		python-graphviz
 # keep 0.16.x here for python2 support
 Version:	0.16
-Release:	4
+Release:	5
 Epoch:		1
 License:	MIT
 Group:		Libraries/Python
