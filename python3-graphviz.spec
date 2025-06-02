@@ -5,7 +5,7 @@
 
 Summary:	Simple Python interface for Graphviz
 Summary(pl.UTF-8):	Prosty pythonowy interfejs do Graphviza
-Name:		python-graphviz
+Name:		python3-graphviz
 Version:	0.20.3
 Release:	1
 Epoch:		1
@@ -34,7 +34,7 @@ BuildRequires:	python3-sphinx_rtd_theme
 BuildRequires:	sphinx-pdg-3 >= 1.7
 %endif
 Requires:	graphviz
-Requires:	python-modules >= 1:2.7
+Requires:	python3-modules >= 1:3.4
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
