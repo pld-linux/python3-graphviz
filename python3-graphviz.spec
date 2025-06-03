@@ -7,7 +7,7 @@ Summary:	Simple Python interface for Graphviz
 Summary(pl.UTF-8):	Prosty pythonowy interfejs do Graphviza
 Name:		python3-graphviz
 Version:	0.20.3
-Release:	1
+Release:	2
 Epoch:		1
 License:	MIT
 Group:		Libraries/Python
@@ -35,6 +35,8 @@ BuildRequires:	sphinx-pdg-3 >= 5
 %endif
 Requires:	graphviz
 Requires:	python3-modules >= 1:3.8
+# python3 module packaged under wrong name
+Obsoletes:	python-graphviz < 1:0.20.3-2
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -51,6 +53,8 @@ DOT oprogramowania do rysowania grafów Graphviz z poziomu Pythona.
 Summary:	API documentation for Python graphviz module
 Summary(pl.UTF-8):	Dokumentacja API modułu Pythona graphviz
 Group:		Documentation
+# python3 module apidocs packaged under wrong name
+Obsoletes:	python-graphviz-apidocs < 1:0.20.3-2
 
 %description apidocs
 API documentation for Python graphviz module.
