@@ -15,15 +15,15 @@ Group:		Libraries/Python
 Source0:	https://files.pythonhosted.org/packages/source/g/graphviz/graphviz-%{version}.zip
 # Source0-md5:	b7c6caf06c0badc770b187645519ea28
 URL:		https://github.com/xflr6/graphviz
+BuildRequires:	python3-modules >= 1:3.8
+BuildRequires:	python3-setuptools
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.714
 BuildRequires:	sed >= 4.0
-BuildRequires:	python3-modules >= 1:3.4
-BuildRequires:	python3-setuptools
 %if %{with tests}
-BuildRequires:	python3-pytest >= 4
+BuildRequires:	python3-pytest >= 7
 BuildRequires:	python3-pytest-cov
-BuildRequires:	python3-pytest-mock >= 1.8
+BuildRequires:	python3-pytest-mock >= 3
 %endif
 %if %{with tests}
 BuildRequires:	graphviz
@@ -31,10 +31,10 @@ BuildRequires:	graphviz
 %if %{with doc}
 BuildRequires:	python3-sphinx_autodoc_typehints
 BuildRequires:	python3-sphinx_rtd_theme
-BuildRequires:	sphinx-pdg-3 >= 1.7
+BuildRequires:	sphinx-pdg-3 >= 5
 %endif
 Requires:	graphviz
-Requires:	python3-modules >= 1:3.4
+Requires:	python3-modules >= 1:3.8
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
